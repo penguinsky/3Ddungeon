@@ -106,15 +106,15 @@ void control() {
 }
 
 void drawMap() {
-	constexpr int center = 50;	//原点(XY共用)
+	constexpr int sxyCenter = 50;	//原点(XY共用)
 	constexpr int  magni = 3;	//拡大率
 	//マップ背景色
 	Rect(0, 0, 200, 200).draw(Palette::White);
 	//自分の視界
-	Circle(center + me.sPos.sx * magni, center - me.sPos.sy * magni, 50).drawPie(0.5_pi - me.shView - me.shMax, me.shMax * 2, ColorF(0.0, 0.0, 1.0, 0.5));
+	Circle(sxyCenter + me.sPos.sx * magni, sxyCenter - me.sPos.sy * magni, 50).drawPie(0.5_pi - me.shView - me.shMax, me.shMax * 2, ColorF(0.0, 0.0, 1.0, 0.5));
 	//点の位置
 	for (auto& obj : objlist) {
-		Circle(center + obj.sx * magni, center - obj.sy * magni, 1).draw(Palette::Red);
+		Circle(sxyCenter + obj.sx * magni, sxyCenter - obj.sy * magni, 1).draw(Palette::Red);
 	}
 }
 
